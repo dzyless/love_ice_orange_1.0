@@ -1,0 +1,18 @@
+#数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/love_ice_orange_1.0?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#端口,项目名
+server:
+  port: 8080
+  servlet:
+    context-path: /love_ice_orange
+
+#mybatis mapper路径配置
+mybatis_config_file: mybatis-config.xml
+mapper_path: /mapper/*Mapper.xml

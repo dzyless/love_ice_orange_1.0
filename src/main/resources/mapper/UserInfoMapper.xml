@@ -1,0 +1,74 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.love.ice.orange.dao.UserInfoMapper">
+
+    <select id="listUserInfo" resultType="com.love.ice.orange.entity.UserInfo">
+        SELECT
+            t.id,
+            t.nickname,
+            t.`name`,
+            t.sex,
+            t.telephone,
+            t.birthday,
+            t.ID_card,
+            t.address,
+            t.adduser,
+            t.addtime,
+            t.updateuser,
+            t.updatetime
+        FROM
+            lio_userinfo t
+    </select>
+
+    <select id="queryById" parameterType="Integer" resultType="com.love.ice.orange.entity.UserInfo">
+        SELECT
+            t.id,
+            t.nickname,
+            t.`name`,
+            t.sex,
+            t.telephone,
+            t.birthday,
+            t.ID_card,
+            t.address,
+            t.adduser,
+            t.addtime,
+            t.updateuser,
+            t.updatetime
+        FROM
+            lio_userinfo t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <insert id="insertUserInfo" parameterType="com.love.ice.orange.entity.UserInfo">
+        INSERT INTO
+          lio_useriinfo(nickname, `name`, sex, telephone, birthday, ID_card, address, adduser, addtime,
+          updateuser, updatetime)
+        VALUES
+          (#{nickName}, #{name}, #{sex}, #{telephone}, #{birthday}, #{IDcard}, #{address}, #{addUser}, #{addTime},
+          #{updateUser}, #{updateTime})
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.love.ice.orange.entity.UserInfo">
+        UPDATE lio_userinfo
+        <set>
+            <if test="nickName != null">nickname = #{nickName}</if>
+            <if test="name != null">`name` = #{name}</if>
+            <if test="sex != null">sex = #{sex}</if>
+            <if test="telephone != null">telephone = #{telephone}</if>
+            <if test="birthday != null">birthday = #{birthday}</if>
+            <if test="IDcard != null">ID_card = #{IDcard}</if>
+            <if test="address != null">address = #{address}</if>
+            <if test="updateUser != null">updateuser = #{updateUser}</if>
+            <if test="updateTime != null">nickname = #{updateTime}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUserInfo" parameterType="Integer">
+        DELETE FROM lio_userinfo WHERE id = #{id}
+    </delete>
+
+</mapper>
