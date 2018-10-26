@@ -6,6 +6,19 @@ spring:
     username: root
     password: 123
     type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
 
 #端口,项目名
 server:
@@ -16,3 +29,7 @@ server:
 #mybatis mapper路径配置
 mybatis_config_file: mybatis-config.xml
 mapper_path: /mapper/*Mapper.xml
+
+#mybatis mapper.xml配置路径
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml

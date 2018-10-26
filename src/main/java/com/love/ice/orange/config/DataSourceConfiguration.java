@@ -1,15 +1,14 @@
 package com.love.ice.orange.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
-@Configuration
-@MapperScan(value = "com.love.ice.orange.dao")
+//@Configuration
 public class DataSourceConfiguration {
 
     @Value("${spring.datasource.driver-class-name}")
@@ -28,6 +27,7 @@ public class DataSourceConfiguration {
     private String dbType;
 
     @Bean(name = "dataSource")
+    @Primary
     public DataSource createDataSource(){
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(driverClassName);

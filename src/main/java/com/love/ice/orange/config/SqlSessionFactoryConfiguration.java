@@ -11,7 +11,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 import java.io.IOException;
 
-@Configuration
+//@Configuration
 public class SqlSessionFactoryConfiguration {
 
     @Value(value = "${mybatis_config_file}")
