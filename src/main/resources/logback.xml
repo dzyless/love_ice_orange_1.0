@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property name="app_name" value="love_ice_orange_1.0" />
+    <contextName>${app_name}</contextName>
+
+    <property name="test_log_home" value="D:/application_logs/test_logs"></property>
+
+    <!--输出到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd-HH:mm:ss.SSS} [%level] [%thread]-%class:%line>>%msg%n</Pattern>
+            <!-- 设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="com.love.ice.orange.dao" level="DEBUG" />
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"></appender-ref>
+    </root>
+
+
+</configuration>

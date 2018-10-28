@@ -1,4 +1,4 @@
-package com.love.ice.orange.constants;
+package com.love.ice.orange.enums;
 
 public enum ResponseCodes {
 

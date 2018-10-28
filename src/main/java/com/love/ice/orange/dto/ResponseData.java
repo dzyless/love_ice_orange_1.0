@@ -1,6 +1,6 @@
 package com.love.ice.orange.dto;
 
-import com.love.ice.orange.constants.ResponseCodes;
+import com.love.ice.orange.enums.ResponseCodes;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,17 +17,17 @@ public class ResponseData<T> implements Serializable {
     private static final long serialVersionUID = -7525641406182829492L;
 
     private Integer code;
-    private String result;
+    private String message;
     private T data;
 
-    public ResponseData(Integer code, String result) {
+    public ResponseData(Integer code, String message) {
         this.code = code;
-        this.result = result;
+        this.message = message;
     }
 
-    public ResponseData(Integer code, String result, T data) {
+    public ResponseData(Integer code, String message, T data) {
         this.code = code;
-        this.result = result;
+        this.message = message;
         this.data = data;
     }
 
